@@ -1,0 +1,24 @@
+{
+  "name": "joao-cli",
+  "version": "0.0.3",
+  "description": "快速搭建前端后台项目, 工程化开发",
+  "main": "command.js",
+  "dependencies": {
+    "commander": "^2.19.0",
+    "fs": "0.0.1-security",
+    "git-clone": "^0.1.0",
+    "inquirer": "^6.2.2",
+    "path": "^0.12.7",
+    "shelljs": "^0.8.3",
+    "tracer": "^0.9.8"
+  },
+  "devDependencies": {},
+  "bin": {
+    "joao": "./command.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "murongqimiao@live.cn",
+  "license": "ISC"
+}
