@@ -58,7 +58,7 @@ commander
     }
 
     shell.exec('git init')
-    shell.exec('git remote add origin git@github.com:murongqimiao/joao-website.git') // 物料仓库
+    shell.exec('git remote add origin https://github.com/murongqimiao/joao-template.git') // 物料仓库
     shell.exec('git config core.sparseCheckout true')
     shell.exec("echo 'material' >> .git/info/sparse-checkout")
     updateFiles()

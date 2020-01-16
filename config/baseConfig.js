@@ -4,6 +4,7 @@ const fs = require('fs');
 // 项目地址
 const projectUrl = {
   'empty-vue-template': 'https://github.com/murongqimiao/joao-template', // 空白库
+  'empty-vue-template(备用)': 'git@github.com:murongqimiao/joao-template.git'
 } 
 
 // util
