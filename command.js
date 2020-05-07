@@ -45,25 +45,43 @@ commander
   .command('update')
   .description('更新物料库')
   .action(() => {
-    let pwd = shell.pwd()
+    log.info('正在准备更新物料')
     shell.cd(__dirname)
+    log.info(__dirname)
+    log.info('正在清理git')
     shell.exec('rm -rf .git')
+
     const updateFiles = () => {
+      log.info('清理旧版组件')
       shell.cd(path.join(__dirname, '/material/generate_components'))
       shell.rm('-rf', '*')
+      log.info('清理旧版页面结构')
       shell.cd(path.join(__dirname, '/material/generate_modules'))
       shell.rm('-rf', '*')
       shell.cd(__dirname)
-      shell.exec('git pull origin master')
+      log.info('执行物料拉取, 这将占用较长时间')
+      shell.exec('git pull origin master', {encoding: 'utf-8'}, function(err, stdout, stderr) {
+        if (err) {
+            console.log(err.stack);
+            console.log('Error code: ' + err.code);
+            console.log('Signal received: ' + err.signal);
+        }
+        //console.log(err, stdout, stderr);
+        console.log('data : ' + stdout);
+      }).on('exit', function (code) {
+        console.log('执行完毕' + code);
+    })
     }
 
+    log.info('Git 初始化阶段')
     shell.exec('git init')
+    log.info('添加物料仓储')
     shell.exec('git remote add origin https://github.com/murongqimiao/joao-website.git') // 物料仓库
+    log.info('追溯物料位置')
     shell.exec('git config core.sparseCheckout true')
+    log.info('物料位置添加至git核心')
     shell.exec("echo 'material' >> .git/info/sparse-checkout")
     updateFiles()
-
-
   })
 
 /**
