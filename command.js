@@ -182,4 +182,15 @@ commander
       log.info('Boom...一切又归于沉寂')
     })
   
+ // help
+ commander
+   .command('help')
+     .description('help')
+     .action(() => {
+       log.info('joao check 查看物料')
+       log.info('joao init 初始化项目')
+       log.info('joao add -c 增加组件 -p增加页面')
+       log.info('joao update 同步远端的物料库到本地')
+     })
+
 commander.parse(process.argv)

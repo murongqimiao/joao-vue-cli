@@ -1,6 +1,6 @@
 {
   "name": "joao-cli",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "快速搭建前端后台项目, 工程化开发",
   "main": "command.js",
   "dependencies": {
