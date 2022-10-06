@@ -92,11 +92,11 @@ commander
   .description('增加物料 -c 组件  -p 页面')
   .action((args) => {
     // 缺少参数
-    if (!commander.component && !commander.page) {
+    if (!['-c', '--component', '-p', '--page'].some(item => commander.rawArgs.includes(item))) {
       log.warn('缺少参数-c或者-p, 以区分物料种类, 具体见--help')
     }
     // 增加组件
-    if (commander.component) {
+    if (['-c', '--component'].some(item => commander.rawArgs.includes(item))) {
       let pwd = shell.pwd()
       args.map(componentType => {
         _componentType = getComponentsFiles().indexOf(componentType) > -1 ? componentType : getComponentsFiles().indexOf(componentType + '.vue') > -1 ? componentType + '.vue' : void 0
@@ -123,7 +123,7 @@ commander
       })
     }
     // 增加页面
-    if (commander.page) {
+    if (['-p', '--page'].some(item => commander.rawArgs.includes(item))) {
       inquirer.prompt(pageQuestions)
       .then(answers => {
         const  { modelType } = answers
@@ -189,7 +189,7 @@ commander
      .action(() => {
        log.info('joao check 查看物料')
        log.info('joao init 初始化项目')
-       log.info('joao add -c 增加组件 -p增加页面')
+       log.info('joao add -c name 增加组件 -p 增加页面')
        log.info('joao update 同步远端的物料库到本地')
      })
 

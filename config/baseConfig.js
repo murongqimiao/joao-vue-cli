@@ -4,7 +4,7 @@ const fs = require('fs');
 // 项目地址
 const projectUrl = {
   'empty-vue3-template[推荐]': 'https://github.com/murongqimiao/empty-vue3-template', // vue3空白库
-  'empty-vue-template': 'https://github.com/murongqimiao/joao-template', // 空白库
+  'dag-vue3-template[dag模板]': 'https://github.com/murongqimiao/dag-vue3-template', // 包含dag elementUI, sass的版本
   'empty-vue-template(备用)': 'git@github.com:murongqimiao/joao-template.git'
 } 
 
